@@ -22,9 +22,11 @@
     </ul>
     <form class="navbar-form navbar-right">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search" id="search">
+        <%= form_tag(controller: 'search', action: 'index') do %>
+          <%= text_field_tag 'search' %>
+          <%= submit_tag 'Search' %>
+        <% end %>
       </div>
-      <%= button_to 'Search', search_path %>
     </form>
   </div>
 </nav>

@@ -12,7 +12,7 @@ require 'rails_helper'
     # for each of the 10 results
 
 describe "As a user" do
-  it "I can search for nearby best buy stores" do
+  it "I can search for nearby best buy stores within 25 miles" do
     visit '/'
     fill_in 'search', with: '80202'
     click_on 'Search'
