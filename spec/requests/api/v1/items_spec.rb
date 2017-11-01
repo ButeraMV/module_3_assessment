@@ -48,8 +48,6 @@ describe "Items API" do
 
     delete '/api/v1/items/1'
 
-    # json = JSON.parse(response.body)
-
     expect(response.status).to eq(204)
     expect(Item.count).to eq(0)
   end
