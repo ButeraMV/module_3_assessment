@@ -10,9 +10,16 @@ class Store
   end
 
   def self.get_store_results(zip_code)
-    raw_data = BestBuySearchService.get_stores_by_zip(zip_code)
-    raw_data[:stores].map do |store_data|
+    store_data = BestBuySearchService.get_stores_by_zip(zip_code)
+    store_data[:stores].map do |store_data|
       Store.new(store_data)
     end
   end
+
+  def self.get_count(zip_code)
+    store_data = BestBuySearchService.get_stores_by_zip(zip_code)
+    store_count = store_data[:total]
+  end
+
+
 end
