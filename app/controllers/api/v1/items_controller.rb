@@ -1,5 +1,7 @@
 class Api::V1::ItemsController < ApplicationController
   def index
-    render json: Item.all
+    @items = Item.all
+    render json: @items
+    binding.pry
   end
 end
