@@ -39,7 +39,6 @@ describe "Items API" do
     json = JSON.parse(response.body)
 
     expect(response.status).to eq(200)
-    expect(json.length).to eq(1)
-    expect(json.first['id']).to eq(item1.id)
+    expect(json['id']).to eq(item1.id)
   end
 end
