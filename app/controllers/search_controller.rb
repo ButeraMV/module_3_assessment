@@ -1,6 +1,5 @@
 class SearchController < ApplicationController
   def index
-    binding.pry
-    @stores = Search.new(params)
+    @stores = Search.get_store_results(params[:search])
   end
 end
