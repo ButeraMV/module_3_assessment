@@ -1,6 +1,3 @@
-# When I send a GET request to /api/v1/items
-# I receive a 200 JSON response containing all items
-# And each item has an id, name, description, and image_url but not the created_at or updated_at
 require 'rails_helper'
 
 describe "Items API" do
@@ -40,5 +37,20 @@ describe "Items API" do
 
     expect(response.status).to eq(200)
     expect(json['id']).to eq(item1.id)
+  end
+
+  it 'can delete an item' do
+    item1 = Item.create(name: 'item1',
+                      description: 'this is an item',
+                      image_url: 'google.com')
+
+    expect(Item.count).to eq(1)
+
+    delete '/api/v1/items/1'
+
+    # json = JSON.parse(response.body)
+
+    expect(response.status).to eq(204)
+    expect(Item.count).to eq(0)
   end
 end
